@@ -1,14 +1,14 @@
-from keras.layers import Input, Dense
-from keras.layers.advanced_activations import LeakyReLU
-from keras.layers.convolutional import Conv2D, MaxPooling2D
-from keras.layers.core import Flatten, Dropout, Reshape, Lambda
-from keras.models import Model
-from keras.applications.vgg16 import VGG16
+from tensorflow.python.keras.layers import Input, Dense
+from tensorflow.python.keras.layers.advanced_activations import LeakyReLU
+from tensorflow.python.keras.layers.convolutional import Conv2D, MaxPooling2D
+from tensorflow.python.keras.layers.core import Flatten, Dropout, Reshape, Lambda
+from tensorflow.python.keras.models import Model
+from tensorflow.python.keras.applications.vgg16 import VGG16
 import tensorflow as tf
 
 
 def l2_normalize(x):
-    return tf.nn.l2_normalize(x, dim=2)
+    return tf.nn.l2_normalize(x, axis=2)
 
 
 def bbox_3D_net(input_shape=(224, 224, 3), vgg_weights=None, freeze_vgg=False, bin_num=6):

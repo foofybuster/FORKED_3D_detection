@@ -13,9 +13,9 @@ model = bbox_3D_net((224,224,3))
 
 model.load_weights(r'model_saved/weights.h5')
 
-image_dir = 'F:/dataset/kitti/testing/image_2/'
-calib_file = 'F:/dataset/kitti/testing/calib.txt'
-box2d_dir = 'F:/dataset/kitti/testing/label_2/'
+image_dir = './dataset/kitti/data_object_image_2/training/image_2/'
+calib_file = './dataset/kitti/calib/000005.txt'
+box2d_dir = './dataset/kitti/label_2/'
 
 classes = ['Car','Van','Truck','Pedestrian','Person_sitting','Cyclist','Tram']
 cls_to_ind = {cls:i for i,cls in enumerate(classes)}
@@ -24,6 +24,7 @@ dims_avg = np.loadtxt(r'dataset/voc_dims.txt',delimiter=',')
 
 
 all_image = sorted(os.listdir(image_dir))
+# print(all_image)
 # np.random.shuffle(all_image)
 
 cam_to_img = get_cam_data(calib_file)
@@ -38,7 +39,7 @@ for f in all_image:
     img = cv2.imread(image_file)
 
     dect2D_data,box2d_reserved = get_dect2D_data(box2d_file,classes)
-
+# Pedestrian 0.00 0 -0.20 712.40 143.00 810.73 307.92 1.89 0.48 1.20 1.84 1.47 8.41 0.01
     for data in dect2D_data:
         cls = data[0]
         box_2D = np.asarray(data[1],dtype=np.float)
