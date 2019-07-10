@@ -39,6 +39,8 @@ for f in all_image:
     img = cv2.imread(image_file)
 
     dect2D_data,box2d_reserved = get_dect2D_data(box2d_file,classes)
+    print(dect2D_data)
+    print(box2d_reserved)
 # Pedestrian 0.00 0 -0.20 712.40 143.00 810.73 307.92 1.89 0.48 1.20 1.84 1.47 8.41 0.01
     for data in dect2D_data:
         cls = data[0]

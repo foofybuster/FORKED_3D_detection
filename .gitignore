@@ -1,3 +1,6 @@
+# Ignore ssd
+pytorch_ssd
+
 # Ignore all model files
 *.h5
 
